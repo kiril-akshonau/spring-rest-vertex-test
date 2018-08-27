@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:+'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    mavenCentral()
+      maven {
+        url "https://oss.sonatype.org/content/repositories/iovertx-3783/"
+    }
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.projectlombok:lombok:1.18.2'
+    compile 'io.vertx:vertx-mongo-client:3.5.3'
+    compile 'io.vertx:vertx-web:3.5.3'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+}
